@@ -12,15 +12,18 @@ export function NavBar() {
   const path = usePathname();
 
   return (
-    <nav className="bg-slate-400">
+    <nav className="bg-blue-400">
       <ul className="flex items-center">
         {links.map(({ url, text }) => {
           const isActive = url === path;
           const className = `p-5 ${
-            isActive ? "bg-slate-600" : "bg-slate-400"
-          } hover:bg-slate-500`;
+            isActive ? "bg-blue-600 font-bold" : "bg-blue-400"
+          } hover:bg-blue-500`;
           return (
-            <li className="flex justify-center items-center" key={url}>
+            <li
+              className="flex justify-center items-center text-white"
+              key={url}
+            >
               <Link className={className} href={url}>
                 {text}
               </Link>
