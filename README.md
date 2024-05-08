@@ -6,7 +6,6 @@ The project use the following technologies:
 
 - [Next.js](https://nextjs.org/docs)
 - [Prisma.io](https://www.prisma.io/docs)
-- [nextui.org](https://nextui.org/docs/guide/introduction)
 - [tailwindcss](https://tailwindcss.com/docs/installation)
 - [docker.com](https://docs.docker.com/compose/)
 
