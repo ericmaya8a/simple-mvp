@@ -1,9 +1,8 @@
-# 02 Create Postgres DB with Prisma
+# 03 Seeding data
 
-[Prisma docs](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-postgresql)
+[Best practice for instantiating Prisma Client with Next.js](https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices)
 
 - run npm i
-- Create docker-compose file
-- Create npm scripts to run postgres container
-- Create Schema
-- Create migration
+- Config Prisma Client
+- Create seed file
+- Create npm scripts
