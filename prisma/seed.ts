@@ -3,6 +3,7 @@ const { faker } = require("@faker-js/faker");
 
 const prisma = new PrismaClient();
 const students = Array.from(Array(15).keys());
+const AVATAR_API_PATH = "https://api.dicebear.com/7.x/adventurer/svg?seed=";
 
 function randomDate(date?: Date) {
   return faker.date.between({
@@ -41,7 +42,7 @@ function createStudent() {
     lastName,
     birthDate: faker.date.birthdate({ min: 6, max: 45, mode: "age" }),
     inscriptionDate: randomDate(),
-    image: faker.image.avatar(),
+    image: `${AVATAR_API_PATH}${firstName}`,
     email,
   };
 }

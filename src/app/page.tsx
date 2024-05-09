@@ -1,52 +1,10 @@
-import { formatDate } from "@/utils";
+import { getStudents } from "@/_server/modules";
 import Link from "next/link";
 import { StudentCard } from "../components/StudentCard";
 
-const date = formatDate(new Date());
-const students = [
-  {
-    id: "1",
-    name: "John Doe",
-    email: "john-doe@gmail.com",
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=john",
-    birthDate: date,
-    inscriptionDate: date,
-  },
-  {
-    id: "2",
-    name: "Mila Day",
-    email: "mila-day@gmail.com",
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=mila",
-    birthDate: date,
-    inscriptionDate: date,
-  },
-  {
-    id: "3",
-    name: "Dan Smith",
-    email: "dan-smith@gmail.com",
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=dan",
-    birthDate: date,
-    inscriptionDate: date,
-  },
-  {
-    id: "4",
-    name: "Paul Mile",
-    email: "paul-mile@gmail.com",
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=paul",
-    birthDate: date,
-    inscriptionDate: date,
-  },
-  {
-    id: "5",
-    name: "Dana Steward",
-    email: "dana-stw@gmail.com",
-    imageUrl: "https://api.dicebear.com/7.x/adventurer/svg?seed=dana",
-    birthDate: date,
-    inscriptionDate: date,
-  },
-];
+export default async function Home() {
+  const students = await getStudents();
 
-export default function Home() {
   return (
     <>
       <h1 className="text-2xl font-bold mb-4">Students</h1>

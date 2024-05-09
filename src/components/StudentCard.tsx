@@ -19,7 +19,7 @@ export function StudentCard({
   inscriptionDate,
 }: StudentCardProps) {
   return (
-    <div className="bg-white border rounded-md p-4 shadow-sm">
+    <div className="bg-white border-2 rounded-md p-4 hover:shadow-lg">
       <div className="flex items-center gap-3">
         <Avatar imageUrl={imageUrl} />
         <span className="font-bold text-xl">{name}</span>
