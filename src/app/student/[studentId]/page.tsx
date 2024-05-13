@@ -14,7 +14,7 @@ export default async function StudentPage({
 
   if (data)
     return (
-      <div>
+      <>
         <div className="flex flex-wrap gap-4 mb-8">
           <div className="sm:w-1/2">
             <StudentCard {...data.studentData} />
@@ -27,7 +27,7 @@ export default async function StudentPage({
         ) : (
           <p className="font-bold text-xl">No Data</p>
         )}
-      </div>
+      </>
     );
 
   return null;
