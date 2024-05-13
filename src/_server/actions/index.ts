@@ -24,6 +24,5 @@ export async function addTuition(formData: FormData) {
     },
   });
 
-  revalidatePath("/student/[studentId]");
-  revalidatePath("/tuitions");
+  revalidatePath(`/student/${studentId}`);
 }
