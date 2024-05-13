@@ -1,7 +1,5 @@
 # 02 Create Postgres DB with Prisma
 
-[NextJs Prisma client](https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices#solution)
-
 - run npm i
 - Create docker-compose file
 - Create npm scripts to run postgres container
