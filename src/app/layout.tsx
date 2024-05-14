@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
-        <main className="min-h-[calc(100vh-65px)] py-5">
+        <main className="min-h-[calc(100vh-65px)] py-5 px-4">
           <div className="container mx-auto">{children}</div>
         </main>
       </body>
