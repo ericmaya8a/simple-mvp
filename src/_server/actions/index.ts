@@ -7,6 +7,7 @@ import { z } from "zod";
 
 const FormSchema = z.object({
   studentId: z.string(),
+  date: z.string(),
   amount: z.coerce.number(),
   paymentType: z.enum([
     PaymentType.CARD,
@@ -16,13 +17,18 @@ const FormSchema = z.object({
 });
 
 export async function addTuition(formData: FormData) {
-  const { studentId, amount, paymentType } = FormSchema.parse(
+  const { studentId, date, amount, paymentType } = FormSchema.parse(
     Object.fromEntries(formData)
   );
+  const dDate = date.split("-");
 
   await prisma.tuition.create({
     data: {
-      date: new Date(),
+      date: new Date(
+        parseInt(dDate[0]),
+        parseInt(dDate[1]) - 1,
+        parseInt(dDate[2])
+      ),
       amount,
       paymentType,
       studentId,

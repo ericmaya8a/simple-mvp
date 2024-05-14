@@ -19,7 +19,7 @@ export function TuitionReport({ data }: TuitionReportProps) {
         <div key={id} className="grid grid-cols-3 gap-4">
           <span>{date}</span>
           <span>{amount}</span>
-          <span>{paymentType}</span>
+          <span className="capitalize">{paymentType}</span>
         </div>
       ))}
     </div>

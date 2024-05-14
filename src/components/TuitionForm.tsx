@@ -8,6 +8,19 @@ export function TuitionForm({ studentId }: { studentId: string }) {
     <form action={addTuition}>
       <input type="hidden" name="studentId" value={studentId} />
       <div className="mb-3">
+        <label className="block" htmlFor="date">
+          Date
+        </label>
+        <input
+          className="border rounded-md p-2"
+          type="date"
+          name="date"
+          id="date"
+          defaultValue={new Date().toISOString().split("T")[0]}
+          required
+        />
+      </div>
+      <div className="mb-3">
         <label className="block" htmlFor="amount">
           Amount
         </label>
@@ -16,6 +29,8 @@ export function TuitionForm({ studentId }: { studentId: string }) {
           type="number"
           name="amount"
           id="amount"
+          min="0"
+          step=".01"
           required
         />
       </div>
