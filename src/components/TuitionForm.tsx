@@ -1,11 +1,20 @@
+"use client";
+
 import { addTuition } from "@/_server/actions";
 import { PaymentType } from "@prisma/client";
+import { useFormState } from "react-dom";
+import { ErrorMessage } from "./ErrorMessage";
+import { SubmitButtonForm } from "./SubmitButtonForm";
 
 const options = Object.keys(PaymentType);
 
+const initialState = { message: null, errors: {} };
+
 export function TuitionForm({ studentId }: { studentId: string }) {
+  const [formState, formAction] = useFormState(addTuition, initialState);
+
   return (
-    <form action={addTuition}>
+    <form action={formAction}>
       <input type="hidden" name="studentId" value={studentId} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4">
         <div>
@@ -18,8 +27,10 @@ export function TuitionForm({ studentId }: { studentId: string }) {
             name="date"
             id="date"
             defaultValue={new Date().toISOString().split("T")[0]}
-            required
           />
+          {formState.errors?.date ? (
+            <ErrorMessage errors={formState.errors.date} />
+          ) : null}
         </div>
         <div>
           <label className="block" htmlFor="amount">
@@ -32,8 +43,10 @@ export function TuitionForm({ studentId }: { studentId: string }) {
             id="amount"
             min="0"
             step=".01"
-            required
           />
+          {formState.errors?.amount ? (
+            <ErrorMessage errors={formState.errors.amount} />
+          ) : null}
         </div>
         <div>
           <label className="block" htmlFor="paymentType">
@@ -43,7 +56,6 @@ export function TuitionForm({ studentId }: { studentId: string }) {
             className="border rounded-md p-2"
             name="paymentType"
             id="paymentType"
-            required
           >
             {options.map((option) => (
               <option value={option} key={option}>
@@ -51,14 +63,12 @@ export function TuitionForm({ studentId }: { studentId: string }) {
               </option>
             ))}
           </select>
+          {formState.errors?.paymentType ? (
+            <ErrorMessage errors={formState.errors.paymentType} />
+          ) : null}
         </div>
         <div className="flex items-end">
-          <button
-            className="p-3 bg-blue-600 text-white uppercase rounded w-20"
-            type="submit"
-          >
-            Add
-          </button>
+          <SubmitButtonForm />
         </div>
       </div>
     </form>
