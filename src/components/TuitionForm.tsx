@@ -28,9 +28,7 @@ export function TuitionForm({ studentId }: { studentId: string }) {
             id="date"
             defaultValue={new Date().toISOString().split("T")[0]}
           />
-          {formState.errors?.date ? (
-            <ErrorMessage errors={formState.errors.date} />
-          ) : null}
+          <ErrorMessage errors={formState.errors?.date} />
         </div>
         <div>
           <label className="block" htmlFor="amount">
@@ -44,9 +42,7 @@ export function TuitionForm({ studentId }: { studentId: string }) {
             min="0"
             step=".01"
           />
-          {formState.errors?.amount ? (
-            <ErrorMessage errors={formState.errors.amount} />
-          ) : null}
+          <ErrorMessage errors={formState.errors?.amount} />
         </div>
         <div>
           <label className="block" htmlFor="paymentType">
@@ -63,9 +59,7 @@ export function TuitionForm({ studentId }: { studentId: string }) {
               </option>
             ))}
           </select>
-          {formState.errors?.paymentType ? (
-            <ErrorMessage errors={formState.errors.paymentType} />
-          ) : null}
+          <ErrorMessage errors={formState.errors?.paymentType} />
         </div>
         <div className="flex items-end">
           <SubmitButtonForm />
